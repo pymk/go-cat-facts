@@ -5,3 +5,7 @@ Provides a simple client for fetching cat facts from an API (`https://meowfacts.
 ```sh
 go run .
 ```
+
+## Purpose
+
+I use this to practice making API requests in Go.
