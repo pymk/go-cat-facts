@@ -18,8 +18,7 @@ type Response struct {
 	Data []string `json:"data"`
 }
 
-// main is the entry point of the program.
-// It fetches a cat fact and prints it, or prints an error if one occurs.
+// main fetches a cat fact and prints it, or prints an error if one occurs.
 func main() {
 	fact, err := getCatFact()
 	if err != nil {
@@ -31,19 +30,18 @@ func main() {
 }
 
 // getCatFact fetches a single cat fact from the API.
-// It returns the fact as a string and any error encountered.
 func getCatFact() (string, error) {
 	// Create an HTTP client with a timeout.
 	client := &http.Client{Timeout: httpTimeOut}
 
-	// Make a GET request to the API.
+	// Make the GET request.
 	resp, err := client.Get(url)
 	if err != nil {
 		return "", fmt.Errorf("failed to make HTTP request: %w", err)
 	}
-	defer resp.Body.Close() // Ensure the response body is closed after we're done.
+	defer resp.Body.Close()
 
-	// Check if the status code indicates success.
+	// Check if the status code.
 	if resp.StatusCode != http.StatusOK {
 		return "", fmt.Errorf("unexpected status code: %d", resp.StatusCode)
 	}
