@@ -27,6 +27,7 @@ func main() {
 	}
 
 	fmt.Println(fact)
+	fmt.Printf("%v\n", fact)
 }
 
 // getCatFact fetches a single cat fact from the API.
